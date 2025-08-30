@@ -1,0 +1,26 @@
+
+[*]
+
+# Microsoft .NET properties
+csharp_style_namespace_declarations = file_scoped:suggestion
+
+# ReSharper properties
+resharper_align_linq_query = true
+resharper_align_multiline_argument = true
+resharper_align_multiline_binary_patterns = true
+resharper_align_multiline_calls_chain = true
+resharper_align_multiline_extends_list = true
+resharper_align_multiline_type_parameter_constraints = true
+resharper_align_tuple_components = true
+resharper_braces_redundant = false
+resharper_csharp_align_multiline_parameter = true
+resharper_csharp_outdent_commas = true
+resharper_csharp_outdent_dots = true
+resharper_indent_inside_namespace = false
+resharper_indent_nested_foreach_stmt = true
+resharper_indent_nested_for_stmt = true
+resharper_indent_nested_while_stmt = true
+resharper_outdent_binary_ops = true
+resharper_outdent_binary_pattern_ops = true
+resharper_place_accessorholder_attribute_on_same_line = false
+resharper_place_field_attribute_on_same_line = false
