@@ -1,5 +1,6 @@
 using FastEndpoints;
 using ReimuYggdrasil.Core.Entites;
+using ReimuYggdrasil.Core.Models.Server.Contexts;
 using ReimuYggdrasil.Core.Models.Server.Requests.AuthServer;
 
 namespace ReimuYggdrasil.Core.Server.Apis.Authserver;
@@ -18,6 +19,7 @@ public class Signout(
             durationSeconds: 60
         );
         AllowAnonymous();
+        SerializerContext<SignoutContext>();
     }
 
     /// <inheritdoc />

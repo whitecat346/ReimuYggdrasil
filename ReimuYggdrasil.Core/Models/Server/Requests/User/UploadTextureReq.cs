@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using FastEndpoints;
 using Microsoft.AspNetCore.Http;
 

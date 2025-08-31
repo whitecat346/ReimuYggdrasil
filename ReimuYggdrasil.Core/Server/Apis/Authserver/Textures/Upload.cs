@@ -6,7 +6,8 @@ namespace ReimuYggdrasil.Core.Server.Apis.Authserver.Textures;
 
 public class Upload(
     ProfileData profileData,
-    TokenData tokenData
+    TokenData tokenData,
+    TextureData textureData
 ) : Endpoint<UploadTextureReq>
 {
     public override void Configure()
@@ -51,6 +52,8 @@ public class Upload(
         var bytes = ms.ToArray();
         var model = string.IsNullOrEmpty(req.Model) ? "default" : req.Model;
         profileData.UploadTexture(uuid, model, bytes);
+
+        textureData.StoreTexture(bytes);
 
         await Send.NoContentAsync(ct);
     }

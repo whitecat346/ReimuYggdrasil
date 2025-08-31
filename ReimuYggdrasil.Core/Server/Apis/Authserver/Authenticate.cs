@@ -1,5 +1,6 @@
 using FastEndpoints;
 using ReimuYggdrasil.Core.Entites;
+using ReimuYggdrasil.Core.Models.Server.Contexts;
 using ReimuYggdrasil.Core.Models.Server.Requests.AuthServer;
 using ReimuYggdrasil.Core.Models.Server.Responses.AuthServer;
 using ReimuYggdrasil.Core.Services;
@@ -22,6 +23,7 @@ public class Authenticate(
             durationSeconds: 60
         );
         AllowAnonymous();
+        SerializerContext<AuthenticateContext>();
     }
 
     /// <inheritdoc />

@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FastEndpoints;
 using ReimuYggdrasil.Core.Entites;
+using ReimuYggdrasil.Core.Models.Server.Contexts;
 using ReimuYggdrasil.Core.Models.Server.Requests.Sessions;
 using ReimuYggdrasil.Core.Models.Yggdrasil;
 using ReimuYggdrasil.Core.Services;
@@ -22,6 +18,7 @@ public class HasJoin(
     {
         Get("/sessionserver/session/minecraft/hasJoined");
         AllowAnonymous();
+        SerializerContext<SessionHasJoinContext>();
     }
 
     /// <inheritdoc />

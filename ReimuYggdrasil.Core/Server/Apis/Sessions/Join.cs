@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FastEndpoints;
 using ReimuYggdrasil.Core.Entites;
 using ReimuYggdrasil.Core.Models;
+using ReimuYggdrasil.Core.Models.Server.Contexts;
 using ReimuYggdrasil.Core.Models.Server.Requests.Sessions;
 using ReimuYggdrasil.Core.Models.Yggdrasil;
 
@@ -24,6 +20,7 @@ public class Join(
     {
         Post("/sessionserver/session/minecraft/join");
         AllowAnonymous();
+        SerializerContext<SessionJoinContext>();
     }
 
     /// <inheritdoc />

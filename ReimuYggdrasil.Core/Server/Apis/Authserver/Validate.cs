@@ -1,5 +1,6 @@
 using FastEndpoints;
 using ReimuYggdrasil.Core.Entites;
+using ReimuYggdrasil.Core.Models.Server.Contexts;
 using ReimuYggdrasil.Core.Models.Server.Requests.AuthServer;
 
 namespace ReimuYggdrasil.Core.Server.Apis.Authserver;
@@ -11,6 +12,7 @@ public class Validate(TokenData tokenData) : Endpoint<ValidateReq>
     {
         Post("/authserver/validate");
         AllowAnonymous();
+        SerializerContext<ValidateContext>();
     }
 
     /// <inheritdoc />

@@ -11,7 +11,7 @@ public class TextureData
     public string GenerateTexture(string uuid, string name, string model, byte[] textureBytes)
     {
         var unixTimeStamp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-        var url = RuntimeInfo.BaseUri + "texture/" + HashUtil.ComputeHash(textureBytes);
+        var url = RuntimeInfo.BaseUri + "/texture/" + HashUtil.ComputeHash(textureBytes);
 
         var texture = new TexturesInfo
         {
@@ -41,7 +41,7 @@ public class TextureData
         _uploadedTextures.TryAdd(hash, textureBytes);
     }
 
-    public byte[]? GetTextures(string hash)
+    public byte[]? GetTexture(string hash)
     {
         return _uploadedTextures.GetValueOrDefault(hash);
     }

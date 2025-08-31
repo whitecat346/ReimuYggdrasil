@@ -1,5 +1,6 @@
 using FastEndpoints;
 using ReimuYggdrasil.Core.Entites;
+using ReimuYggdrasil.Core.Models.Server.Contexts;
 using ReimuYggdrasil.Core.Models.Server.Requests.AuthServer;
 using ReimuYggdrasil.Core.Models.Server.Responses.AuthServer;
 
@@ -16,6 +17,7 @@ public class Refresh(
     {
         Post("/authserver/refresh");
         AllowAnonymous();
+        SerializerContext<RefreshContext>();
     }
 
     /// <inheritdoc />
