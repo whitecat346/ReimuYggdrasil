@@ -176,18 +176,16 @@ public class TokenData : IDisposable
         }
     }
 
-    private bool IsUsable(TokenInfo info) =>
+    private static bool IsUsable(TokenInfo info) =>
         info.State is TokenState.Active;
 
-    private bool IsSuspend(TokenInfo info) =>
-        info.State is TokenState.Suspend;
-
-    private bool IsExpired(TokenInfo info) =>
+    private static bool IsExpired(TokenInfo info) =>
         info.State is TokenState.Expired;
 
     /// <inheritdoc />
     public void Dispose()
     {
+        GC.SuppressFinalize(this);
         _rwLock.Dispose();
         _expireTimer.Dispose();
     }

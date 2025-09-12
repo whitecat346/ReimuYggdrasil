@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 
-namespace ReimuYggdrasil.Core.Models.Server.Requests;
+namespace ReimuYggdrasil.Core.Models.Server.Responses;
 
-public record ApiMetaInfoReq
+public record ApiMetaInfoRep
 {
     [JsonPropertyName("meta")]
     public ServerMetaInfo Meta { get; } = new();

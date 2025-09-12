@@ -3,7 +3,7 @@ using ReimuYggdrasil.Core.Utils;
 
 namespace ReimuYggdrasil.Core.Entites;
 
-public class ProfileData(TextureData textureData)
+public class ProfileData : IDisposable
 {
     public static List<ProfileInfoProperty> DefaultProfileProperties =>
     [
@@ -14,7 +14,7 @@ public class ProfileData(TextureData textureData)
         }
     ];
 
-    private HashSet<ProfileInfo> Profiles { get; set; } = [];
+    private HashSet<ProfileInfo> Profiles { get; } = [];
     private readonly ReaderWriterLockSlim _rwLock = new();
 
     public void AddProfile(ProfileInfo profile)
@@ -30,9 +30,9 @@ public class ProfileData(TextureData textureData)
         }
     }
 
-    public void AddProfile(string name)
+    public void AddProfile(string name, string? uuid = null)
     {
-        var uuid = UuidUtil.GenerateUuid(name);
+        uuid ??= UuidUtil.GenerateUuid(name);
 
         _rwLock.EnterWriteLock();
         try
@@ -81,7 +81,7 @@ public class ProfileData(TextureData textureData)
             var profile = Profiles.FirstOrDefault(it => it.Uuid.Equals(uuid, StringComparison.Ordinal));
             if (profile == null) return;
 
-            var textureBase = textureData.GenerateTexture(profile.Uuid, profile.Name, module, textureBbytes);
+            var textureBase = TextureData.GenerateTexture(profile.Uuid, profile.Name, module, textureBbytes);
 
             var textureProperty = new ProfileInfoProperty
             {
@@ -118,5 +118,12 @@ public class ProfileData(TextureData textureData)
         {
             _rwLock.ExitReadLock();
         }
+    }
+
+    /// <inheritdoc />
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+        _rwLock.Dispose();
     }
 }

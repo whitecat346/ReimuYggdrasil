@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11010.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReimuYggdrasil.Core", "ReimuYggdrasil.Core\ReimuYggdrasil.Core.csproj", "{2DA68616-4140-4B41-B5FE-5A3E64067018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReimuYggdrasil.Console", "ReimuYggdrasil.Console\ReimuYggdrasil.Console.csproj", "{F9FF9AD8-DFA5-4092-BAF0-BBCDF817E233}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2DA68616-4140-4B41-B5FE-5A3E64067018}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DA68616-4140-4B41-B5FE-5A3E64067018}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DA68616-4140-4B41-B5FE-5A3E64067018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9FF9AD8-DFA5-4092-BAF0-BBCDF817E233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9FF9AD8-DFA5-4092-BAF0-BBCDF817E233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9FF9AD8-DFA5-4092-BAF0-BBCDF817E233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9FF9AD8-DFA5-4092-BAF0-BBCDF817E233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

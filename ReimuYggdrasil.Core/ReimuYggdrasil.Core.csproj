@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Server\Apis\Authserver\Authenticate.cs.disable" />
+    <Compile Include="Server\Apis\Authserver\Signout.cs.disable" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Server\Apis\Authserver\Textures\Delete.cs" />
+    <None Include="Server\Apis\Authserver\Textures\GetTexture.cs" />
+    <None Include="Server\Apis\Authserver\Textures\Upload.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FastEndpoints" Version="7.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.8" />

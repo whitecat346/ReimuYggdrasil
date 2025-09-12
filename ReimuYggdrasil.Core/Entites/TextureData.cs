@@ -8,7 +8,7 @@ public class TextureData
 {
     private readonly Dictionary<string, byte[]> _uploadedTextures = [];
 
-    public string GenerateTexture(string uuid, string name, string model, byte[] textureBytes)
+    public static string GenerateTexture(string uuid, string name, string model, byte[] textureBytes)
     {
         var unixTimeStamp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         var url = RuntimeInfo.BaseUri + "/texture/" + HashUtil.ComputeHash(textureBytes);

@@ -2,7 +2,7 @@ using ReimuYggdrasil.Core.Models.Yggdrasil;
 
 namespace ReimuYggdrasil.Core.Entites;
 
-public class UserData
+public class UserData : IDisposable
 {
     private HashSet<UserInfo> Users { get; } = [];
     private readonly ReaderWriterLockSlim _rwLock = new();
@@ -44,5 +44,12 @@ public class UserData
         {
             _rwLock.ExitReadLock();
         }
+    }
+
+    /// <inheritdoc />
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+        _rwLock.Dispose();
     }
 }
