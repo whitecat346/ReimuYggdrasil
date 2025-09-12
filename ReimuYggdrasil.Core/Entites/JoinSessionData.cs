@@ -16,9 +16,6 @@ public class JoinSessionData : IDisposable
     /// <param name="cleanupInterval">清理过期会话的时间间隔。默认为10秒。</param>
     public JoinSessionData(TimeSpan? cleanupInterval = null)
     {
-        // 设置定时器，定期执行清理任务
-        // TimeSpan.Zero 表示立即开始第一次执行
-        // cleanupInterval ?? TimeSpan.FromSeconds(10) 表示每10秒执行一次
         _cleanupTimer = new Timer(
             callback: CleanupExpiredSessions,
             state: null,
@@ -91,9 +88,8 @@ public class JoinSessionData : IDisposable
     /// </summary>
     public void Dispose()
     {
-        // 释放定时器和锁资源
-        _cleanupTimer?.Dispose();
-        _lock?.Dispose();
+        _cleanupTimer.Dispose();
+        _lock.Dispose();
         GC.SuppressFinalize(this);
     }
 }

@@ -7,6 +7,9 @@ public record UserInfo
     [JsonPropertyName("id")]
     public required string Id { get; set; }
 
+    [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
+    public required string Password { get; set; }
+
     [JsonPropertyName("properties")]
     public List<UserInfoProperty> Properties { get; set; } = [];
 }

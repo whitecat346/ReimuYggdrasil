@@ -40,7 +40,7 @@ public class Authenticate(
             return;
         }
 
-        var userPwd = userInfo.Properties.First(it => it.Name.Equals("Password", StringComparison.Ordinal));
+        var userPwd = userInfo.Password;
         if (!userPwd.Value.Equals(pwd, StringComparison.Ordinal))
         {
             await Send.ForbiddenAsync(ct);

@@ -20,7 +20,7 @@ public static class ReimuYggdrasil
                .AddSingleton<ProfileData>()
                .AddSingleton<TextureData>()
                .AddSingleton<TokenData>()
-            //.AddSingleton<UserData>()
+               .AddSingleton<UserData>()
             ;
 
         builder.WebHost.UseUrls($"http://localhost:{port}");

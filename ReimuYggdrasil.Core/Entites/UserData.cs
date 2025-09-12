@@ -12,14 +12,7 @@ public class UserData : IDisposable
         var user = new UserInfo
         {
             Id = name,
-            Properties =
-            [
-                new UserInfoProperty
-                {
-                    Name = "Password",
-                    Value = pwd
-                }
-            ]
+            Password = pwd
         };
 
         _rwLock.EnterWriteLock();

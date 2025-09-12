@@ -6,7 +6,8 @@ using ReimuYggdrasil.Core.Models.Server.Requests.AuthServer;
 namespace ReimuYggdrasil.Core.Server.Apis.Authserver;
 
 public class AddUser(
-    ProfileData profileData
+    ProfileData profileData,
+    UserData userData
 ) : Endpoint<AddUserReq>
 {
     /// <inheritdoc />
@@ -33,6 +34,8 @@ public class AddUser(
     /// <inheritdoc />
     public override async Task HandleAsync(AddUserReq req, CancellationToken ct)
     {
+        userData.AddUser(req.Name, string.Empty); // not have any pwd
+
         profileData.AddProfile(req.Name, req.Uuid);
 
         if (req.Textures is { Skin: not null })
